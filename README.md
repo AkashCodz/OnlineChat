@@ -22,7 +22,13 @@ on their interests (choose a few topics of interests to connect (like food, coun
 
 ## Screenshots
 
-![App Screenshot]()
+![App Screenshot](
+![Screenshot (395)](https://user-images.githubusercontent.com/101062599/236116860-a0184d60-53e2-4c72-9216-b82b804bfb1a.png)
+![Screenshot (394)](https://user-images.githubusercontent.com/101062599/236116862-f0c76c24-881e-462b-9229-9ba3011c825b.png)
+![Screenshot (393)](https://user-images.githubusercontent.com/101062599/236116865-afb7c8df-b51c-4b20-a345-7f1ffd63e900.png)
+![Screenshot (392)](https://user-images.githubusercontent.com/101062599/236116867-5a5d359a-794d-457d-a5ae-533d3931ef7e.png)
+
+)
 
 
 ## Run Locally
