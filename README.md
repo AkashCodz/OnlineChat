@@ -55,6 +55,12 @@ Start the server
 
 ## Screenshots
 
+![Screenshot (392)](https://user-images.githubusercontent.com/101062599/236120947-c354d3a2-f2a4-48a6-97ef-84d0b69161e8.png)
+![Screenshot (393)](https://user-images.githubusercontent.com/101062599/236120976-6e6e85e6-a369-4c1d-b859-f1b237664d86.png)
+![Screenshot (394)](https://user-images.githubusercontent.com/101062599/236121002-46b07c63-7ca8-402e-8d0b-0294de0ac1f7.png)
+![Screenshot (395)](https://user-images.githubusercontent.com/101062599/236121015-df83b001-d198-4641-9168-3b0a4b095ba8.png)
+
+
 
 
 # Hi, I'm Akash Sharma! 👋
