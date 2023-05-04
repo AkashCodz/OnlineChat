@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Registration</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <section class="bg-gray-50 dark:bg-gray-900">
+        <div class="flex flex-col items-center justify-center  md:h-screen lg:py-0">
+
+            <!-- Error -->
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} 
+            <div class="w-auto mb-2 px-14 p-2 bg-warning-100  bg-red-500 rounded-xl shadow-lg flex text-yellow-100 font-medium break-words text-white hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80">
+                <span class="mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 mt-1">
+                      <path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                {{ message }}  
+            </div>
+             {% endif %}
+            <!-- Success -->
+             {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %} 
+            <div class="w-auto mb-2 px-14 p-2 bg-red-500 rounded-xl shadow-lg flex text-yellow-100 font-medium break-words text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80">
+                <span class="mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 mt-1">
+                      <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                {{ message }}  
+            </div>
+             {% endif %}
+            {% endfor %}
+            {% endif %}
+
+
+            <p class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+            <img class="w-8 mr-2" src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png" alt="logo">
+            User Registration    
+            </p>
+            <div class="w-full  rounded-lg shadow dark:border sm:max-w-md  dark:bg-gray-800 dark:border-gray-700">
+                <div class="p-6">
+                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                        Create an account
+                    </h1>
+                        
+                        <form class="space-y-10 " action="" method="post" >
+                            {% csrf_token %}
+                            <div>
+                                <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username:</label>
+                                <input type="text" name="username" maxlength="150" autofocus required id="username" class="float-right h-8 pl-4 -mt-8 rounded-full mr-8" placeholder="Akash Kumar Sharma">
+                            </div>
+                            <div>
+                                <label for="id_gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender:</label>
+                                <input type="text" name="gender" maxlength="150" id="id_gender" class="float-right h-8 pl-4 -mt-8 rounded-full mr-8" placeholder="Akash">
+                            </div>
+                            <div>
+                                <label  for="id_country" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Country:</label>
+                                <input  type="text" name="country" maxlength="150" id="id_country" class="float-right h-8 pl-4 -mt-8 rounded-full mr-8" placeholder="Sharma">
+                            </div>
+                            <div>
+                                <label for="id_email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email:</label>
+                                <input type="email" name="email" maxlength="254" id="id_email" class="float-right h-8 pl-4 -mt-8 rounded-full mr-8" placeholder="ak@gmail.com">
+                            </div>
+                        <div>
+                            <label for="id_password1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password:</label>
+                            <input type="password" name="password1" autocomplete="new-password" required id="id_password1" placeholder="••••••••" class="float-right h-8 pl-4 -mt-8 rounded-full mr-8">
+                        </div>
+                        <div>
+                            <label for="id_password2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password:</label>
+                            <input type="password" name="password2" required id="id_password2" placeholder="••••••••" class="float-right h-8 pl-4 -mt-8 rounded-full mr-8">
+                        </div>
+                            
+                        <div class="flex">
+                            <div class=" relative text-gray-400 focus-within:text-gray-600">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-7 h-7 mb-2 ml-16">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                      </svg>
+                                      
+                                  </div>
+                                  <input type="submit" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-12 py-2.5 text-center mb-2 pl-6">
+                                </div>
+                            
+                            
+                                <a class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-32 mb-2"
+                                href="{% url 'login' %}">Login</a>
+                        </div>
+                            <!-- <button type="button" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Create an account</button>
+                            <a class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" href="{% url 'login' %} ">Login</a> -->
+                        </div>
+                        </form>
+                        </div>
+                        </div>
+                        </div>
+                    </section>
+      
+
+      
+</body>
+</html>
