@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib import messages
+from .models import UserProfile
+
 
 def signup(request):
     if request.user.is_authenticated:
@@ -13,7 +15,6 @@ def signup(request):
         email=request.POST['email']
         pass1=request.POST['password1']
         pass2=request.POST['password2']
-        
         
         uname_check=User.objects.filter(username=uname).exists()
         
@@ -30,14 +31,20 @@ def signup(request):
             return redirect('signup')
         
         else:
+            # fm=User.objects.create_user(uname,email,pass1,gen,con)
+            # fm.save()
             fm=User.objects.create_user(uname,email,pass1)
-            fm.gender=gen
-            fm.country=con
-            fm.save()
+            # Create a new UserProfile instance
+            profile = UserProfile.objects.create(
+                user=fm,
+                gender=gen,
+                country=con
+            )
+            profile.save()
             # Success Message
             messages.success(request,f'{uname} account is successfully created')
             return redirect('login')
-    return render(request,'InUp/signupc.html')
+    return render(request,'signupc.html')
 
 def login(request):
     if request.user.is_authenticated:
@@ -54,11 +61,11 @@ def login(request):
         else:
             messages.error(request,'Something Went Wrong')
             return redirect('login')
-    return render(request,'InUp/signinc.html')
+    return render(request,'signinc.html')
 
 def home(request):
     if request.user.is_authenticated:
-        return render(request, 'InUp/index.html')
+        return render(request, 'index.html')
     return redirect('login')
 
 def logout(request):

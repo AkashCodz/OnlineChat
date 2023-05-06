@@ -11,7 +11,7 @@ def chat(request, group_name):
         group=Group(name=group_name)
         group.save()
 
-    return render(request,'chat\chat.html',{'group_name':group_name, 'chats':chats})
+    return render(request,'chat.html',{'group_name':group_name, 'chats':chats})
     #########################################################
 
     # return render(request,'chat.html',{'group_name':group_name})          #without database

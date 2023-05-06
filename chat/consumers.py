@@ -1,6 +1,8 @@
 from channels.generic.websocket import AsyncJsonWebsocketConsumer
+from django.contrib.auth.models import User
 from .models import Chat, Group
 from channels.db import database_sync_to_async          # database work 'imp'
+from InUp.models import UserProfile
 
 class MyAsyncJsonWebsocketConsumer(AsyncJsonWebsocketConsumer):
     async def connect(self):
@@ -14,15 +16,18 @@ class MyAsyncJsonWebsocketConsumer(AsyncJsonWebsocketConsumer):
             self.channel_name
         )
         await self.accept()
-        self.user_profile = self.scope['user']
-        # user_profile = await database_sync_to_async(UserProfile.objects.get)(pk=self.scope['user'].pk)
-        # message = {
-        #     'name': self.user_profile,
-        #     'gender': self.user_profile.gen,
-        #     'country': self.user_profile.con
-        # }
-        # print(message)
-        # self.send(text_data=json.dumps(message))
+        user = await database_sync_to_async(User.objects.get)(id=self.scope['user'].id)
+        user_profile = await database_sync_to_async(UserProfile.objects.get)(user=user)
+
+        username = user.username
+        # print(self.scope['user'].id)
+        gender = user_profile.gender
+        country = user_profile.country
+
+        user_info = {'username': username, 'gender': gender, 'country': country}
+        print(user_info)
+        await self.send_json(user_info)
+
         
     async def receive_json(self, content, **kwargs):
         print('Message Received from Client...', content)
