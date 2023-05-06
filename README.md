@@ -56,9 +56,10 @@ Start the server
 ## Screenshots
 
 ![Screenshot 2023-05-06 132408](https://user-images.githubusercontent.com/101062599/236611394-17628c78-f6cc-4044-8a8d-b83d3edeffe8.png)
-![Screenshot 2023-05-06 132602](https://user-images.githubusercontent.com/101062599/236611400-481b0ca0-945b-46cf-9316-3b97b328252a.png)
+
 ![Screenshot 2023-05-06 132530](https://user-images.githubusercontent.com/101062599/236611401-ae8452ca-d097-44cd-b4c0-524acfa860ce.png)
 
+![Screenshot 2023-05-06 132602](https://user-images.githubusercontent.com/101062599/236611400-481b0ca0-945b-46cf-9316-3b97b328252a.png)
 
 
 
